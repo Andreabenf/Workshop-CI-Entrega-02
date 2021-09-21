@@ -33,13 +33,13 @@ build-backend:       # This job runs in the build stage, which runs first.
   stage: build
   script:
     - echo "Building backend docker image..."
-    - docker build --pull -f ./backend/Dockerfile -t $DOCKER_USERNAME/ci_entrega_02:backend ./backend
+    - docker build --pull -f ./backend/Dockerfile -t $DOCKER_USERNAME/ci_entrega_02_backend:backend ./backend
 
 build-frontend:      
   stage: build
   script:
     - echo "Building frontend docker image..."
-    - docker build --pull -f ./frontend/Dockerfile -t $DOCKER_USERNAME/ci_entrega_02:frontend ./frontend
+    - docker build --pull -f ./frontend/Dockerfile -t $DOCKER_USERNAME/ci_entrega_02_frontend:frontend ./frontend
 
 test-frontend:
   image: docker/compose:latest
@@ -63,14 +63,14 @@ deploy-backend:
   stage: deploy
   script:
     - echo "Deploying backend..."
-    - docker build --pull -f ./backend/Dockerfile -t $DOCKER_USERNAME/ci_entrega_02:backend ./backend
+    - docker build --pull -f ./backend/Dockerfile -t $DOCKER_USERNAME/ci_entrega_02_backend:backend ./backend
     - docker push $DOCKER_USERNAME/ci_entrega_02:backend
 
 deploy-frontend:      
   stage: deploy
   script:
     - echo "Deploying frontend..."
-    - docker build --pull -f ./frontend/Dockerfile -t $DOCKER_USERNAME/ci_entrega_02:frontend ./frontend
+    - docker build --pull -f ./frontend/Dockerfile -t $DOCKER_USERNAME/ci_entrega_02_frontend:frontend ./frontend
     - docker push $DOCKER_USERNAME/ci_entrega_02:frontend
 
 
