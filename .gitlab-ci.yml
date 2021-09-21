@@ -22,7 +22,7 @@ variables:
   DOCKER_PASSWORD: $DOCKER_PASSWORD
   
 before_script:
-- docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
+- docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" --password-stdin
 
 stages:          # List of stages for jobs, and their order of execution
   - build
