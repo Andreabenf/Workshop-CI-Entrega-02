@@ -39,7 +39,7 @@ build-frontend:
   stage: build
   script:
     - echo "Building frontend docker image..."
-    - docker build -f ./frontend/Dockerfile -t $DOCKER_USER/entrega02_frontend:ci_entrega_02:frontend ./frontend
+    - docker build --pull -f ./frontend/Dockerfile -t $DOCKER_USERNAME/ci_entrega_02:frontend ./frontend
 
 test-frontend:
   image: docker/compose:latest
@@ -63,12 +63,12 @@ deploy-backend:
   stage: deploy
   script:
     - echo "Deploying backend..."
-    - docker push $DOCKER_USER/entrega02_backend:ci_entrega_02:backend
+    - docker push $DOCKER_USERNAME/ci_entrega_02:backend
 
 deploy-frontend:      
   stage: deploy
   script:
     - echo "Deploying frontend..."
-    - docker push $DOCKER_USER/entrega02_frontend:ci_entrega_02:frontend
+    - docker push $DOCKER_USERNAME/ci_entrega_02:frontend
 
 
