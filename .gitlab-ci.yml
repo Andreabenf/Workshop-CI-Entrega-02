@@ -64,13 +64,13 @@ deploy-backend:
   script:
     - echo "Deploying backend..."
     - docker build --pull -f ./backend/Dockerfile -t $DOCKER_USERNAME/ci_entrega_02_backend:backend ./backend
-    - docker push $DOCKER_USERNAME/ci_entrega_02:backend
+    - docker push $DOCKER_USERNAME/ci_entrega_02_backend:backend
 
 deploy-frontend:      
   stage: deploy
   script:
     - echo "Deploying frontend..."
     - docker build --pull -f ./frontend/Dockerfile -t $DOCKER_USERNAME/ci_entrega_02_frontend:frontend ./frontend
-    - docker push $DOCKER_USERNAME/ci_entrega_02:frontend
+    - docker push $DOCKER_USERNAME/ci_entrega_02_frontend:frontend
 
 
